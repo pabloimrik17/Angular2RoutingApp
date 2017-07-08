@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { User } from "../shared/models/user";
 import {UserService} from "../shared/services/user.service";
 
@@ -11,7 +11,11 @@ import {UserService} from "../shared/services/user.service";
 
 export class AboutUserComponent implements OnInit {
   user: User;
-  constructor(private route: ActivatedRoute, private userSerive: UserService) { }
+  constructor(
+      private route: ActivatedRoute,
+      private userSerive: UserService,
+      private router: Router
+  ) { }
 
   ngOnInit() {
     let username = this.route.snapshot.params["username"];
@@ -19,7 +23,14 @@ export class AboutUserComponent implements OnInit {
     this.userSerive.getUser(username).then(user => {
       this.user = user
     });
+  }
 
+  goBack() {
+
+    // EQUIVALENTE A RETROCESO EN EL NAVEGADOR
+    // window.history.back();
+
+    this.router.navigate(["/about"]);
   }
 
 }
