@@ -12,9 +12,12 @@ import {AboutUserComponent} from "./about-user/about-user.component";
 
 const appRoutes : Routes = [
     { path : '', component : HomeComponent },
+
     { path : 'about', component : AboutComponent },
     { path : 'about/:username', component : AboutUserComponent },
+
     { path : 'contact', component : ContactComponent },
+
     { path : '**', component : NotFoundComponent }
 ];
 
