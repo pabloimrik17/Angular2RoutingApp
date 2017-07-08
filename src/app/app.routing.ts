@@ -7,7 +7,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { ContactComponent } from "./contact/contact.component";
-import {AppComponent} from "./app.component";
 
 const appRoutes : Routes = [
     { path : '', component : HomeComponent },
@@ -15,4 +14,4 @@ const appRoutes : Routes = [
     { path : 'contact', component : ContactComponent }
 ];
 
-export const appRouting : ModuleWithProviders = RouterModule.forRoot(appRoutes, {enableTracing: true});
+export const appRouting : ModuleWithProviders = RouterModule.forRoot(appRoutes, {enableTracing: false});
