@@ -8,13 +8,16 @@ import {AboutComponent} from "./about.component";
 import {AboutUserComponent} from "../about-user/about-user.component";
 import {AboutSectionComponent} from "../about-section/about-section.component";
 import {AboutUsersResolve} from "../about-resolve.service";
+import {AboutUserResolve} from "../about-user-resolve.service";
 
 const aboutRoutes = [
+    // RESOLVE ES INTERESANTE FRENTE A UN SERVICIO DIRECTO EN EL COMPONENTE PARA RECHAZAR EL ACCESO A UN DATO QUE NO EXISTE Y REDIRIGIR
+
     {path : 'about',
         component: AboutSectionComponent,
         children: [
             { path: '', component: AboutComponent, resolve: { users: AboutUsersResolve}},
-            { path: ':username', component: AboutUserComponent },
+            { path: ':username', component: AboutUserComponent, resolve: {user: AboutUserResolve} },
         ]
     }
 ];

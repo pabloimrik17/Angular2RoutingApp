@@ -18,11 +18,18 @@ export class AboutUserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    /* USANDO UN SERVICIO */
+    /*
     let username = this.route.snapshot.params["username"];
 
     this.userSerive.getUser(username).then(user => {
       this.user = user
-    });
+    });*/
+
+    this.route.data.forEach((data: {user: User}) => {
+      this.user = data.user;
+    } )
   }
 
   goBack() {
