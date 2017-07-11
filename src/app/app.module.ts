@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+
+/* ANGULAR MODULES */
 import {AboutModule} from "./aboutModule/about.module";
 import {DashboardModule} from "./dashboardModule/dashboard.module";
 
