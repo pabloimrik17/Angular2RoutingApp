@@ -11,7 +11,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import {AboutModule} from "./about/about.module";
+import {AboutModule} from "./aboutModule/about.module";
+import {DashboardModule} from "./dashboardModule/dashboard.module";
 
 /* ANGULAR SERVICES */
 
@@ -20,12 +21,13 @@ import {AboutModule} from "./about/about.module";
     AppComponent,
     HomeComponent,
     ContactComponent,
-    NotFoundComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AboutModule,
+    DashboardModule,
     appRouting
   ],
   providers: [
