@@ -8,13 +8,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {DashboardUsersComponent} from "./dashboard-users/dashboard-users.component";
 import {DashboardUserHomeComponent} from "./dashboard-user-home/dashboard-user-home.component";
 import {DashboardUserDetailComponent} from "./dashboard-user-detail/dashboard-user-detail.component";
+import {AuthGuard} from "../shared/guards/auth.guard";
 
 
 export const dashboardRoutes: Routes = [
     {
         path: 'dashboard', children: [
-            { path: '', component: DashboardComponent },
-            { path: 'users', component: DashboardUsersComponent, children: [
+            { path: '', component: DashboardComponent, canActivate: [AuthGuard]},
+            { path: 'users', component: DashboardUsersComponent, canActivateChild: [AuthGuard], children: [
                 { path: '', component: DashboardUserHomeComponent },
                 { path: ':username', component: DashboardUserDetailComponent }
             ]},

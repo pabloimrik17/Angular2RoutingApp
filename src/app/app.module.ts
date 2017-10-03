@@ -17,6 +17,7 @@ import {AboutModule} from "./aboutModule/about.module";
 import {DashboardModule} from "./dashboardModule/dashboard.module";
 
 /* ANGULAR SERVICES */
+import {AuthGuard} from "./shared/guards/auth.guard";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import {DashboardModule} from "./dashboardModule/dashboard.module";
     appRouting
   ],
   providers: [
-
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
