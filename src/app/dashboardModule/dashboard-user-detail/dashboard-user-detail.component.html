@@ -1,3 +1,14 @@
-<p>
-  dashboard-user-detail works!
-</p>
+<div class="jumbotron">
+  <div *ngIf="user">
+    <h2> {{ user.name }}</h2>
+    <div class="form-group">
+      <input type="text" class="form-control" [(ngModel)]="editName">
+
+      <div class="form-group">
+        <button (click)="cancel()" class="btn btn-danger">Cancel</button>
+        <button (click)="save()" class="btn btn-success">Save</button>
+      </div>
+
+    </div>
+  </div>
+</div>

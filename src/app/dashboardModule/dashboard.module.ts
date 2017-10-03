@@ -6,11 +6,13 @@ import {DashboardUserHomeComponent} from "./dashboard-user-home/dashboard-user-h
 import {DashboardUserDetailComponent} from "./dashboard-user-detail/dashboard-user-detail.component";
 import {DashboardUsersComponent} from "./dashboard-users/dashboard-users.component";
 import {UserService} from "../shared/services/user.service";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     CommonModule,
-    dashboardRouting
+    dashboardRouting,
+    FormsModule
   ],
   declarations: [
     DashboardComponent,

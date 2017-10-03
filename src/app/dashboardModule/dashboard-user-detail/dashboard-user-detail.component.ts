@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../shared/services/user.service";
 import {User} from "../../shared/models/user";
-import {ActivatedRoute } from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard-user-detail',
@@ -10,8 +10,9 @@ import {ActivatedRoute } from "@angular/router";
 })
 export class DashboardUserDetailComponent implements OnInit {
   user: User;
+  editName: string;
 
-  constructor(private userService: UserService, private route: ActivatedRoute) { }
+  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.forEach(params => {
@@ -19,7 +20,18 @@ export class DashboardUserDetailComponent implements OnInit {
 
       this.userService.getUser(username).then(user => {
         this.user = user;
-      })
+        this.editName = user.name;
+      });
     });
+  }
+
+  //Go to Dashboard users
+  cancel() {
+    this.router.navigate(['/dashboard/users'])
+  }
+
+  save() {
+    this.user.name = this.editName;
+    this.router.navigate(['/dashboard/users']);
   }
 }
