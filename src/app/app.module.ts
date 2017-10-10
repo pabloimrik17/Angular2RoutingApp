@@ -13,11 +13,12 @@ import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 /* ANGULAR MODULES */
-import {AboutModule} from "./aboutModule/about.module";
-import {DashboardModule} from "./dashboardModule/dashboard.module";
+import {AboutModule} from './aboutModule/about.module';
+import {DashboardModule} from './dashboardModule/dashboard.module';
 
 /* ANGULAR SERVICES */
-import {AuthGuard} from "./shared/guards/auth.guard";
+import {AuthGuard} from './shared/guards/auth.guard';
+import {CanDeactivateGuard} from './shared/guards/can-deactivate.guard';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {AuthGuard} from "./shared/guards/auth.guard";
     appRouting
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    CanDeactivateGuard
   ],
   bootstrap: [AppComponent]
 })
