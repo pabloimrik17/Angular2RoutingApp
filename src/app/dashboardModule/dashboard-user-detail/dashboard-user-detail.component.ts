@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../shared/services/user.service";
-import {User} from "../../shared/models/user";
-import {ActivatedRoute, Router} from "@angular/router";
+import {UserService} from '../../shared/services/user.service';
+import {User} from '../../shared/models/user';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-user-detail',
@@ -16,7 +16,7 @@ export class DashboardUserDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach(params => {
-      let username: string = params["username"];
+      const username: string = params['username'];
 
       this.userService.getUser(username).then(user => {
         this.user = user;
@@ -25,7 +25,7 @@ export class DashboardUserDetailComponent implements OnInit {
     });
   }
 
-  //Go to Dashboard users
+  // Go to Dashboard users
   cancel() {
     this.router.navigate(['/dashboard/users'])
   }
@@ -33,5 +33,13 @@ export class DashboardUserDetailComponent implements OnInit {
   save() {
     this.user.name = this.editName;
     this.router.navigate(['/dashboard/users']);
+  }
+
+  canDeactivate() {
+    if (this.user.name !== this.editName) {
+      return window.confirm('Discard changes?');
+    }
+
+    return true;
   }
 }
